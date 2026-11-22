@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b14">
+  <meta name="description" content="ReelGen — create videos with AI.">
+  <title>ReelGen — AI Video Studio</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090b14;--panel:#111525;--panel2:#171d31;--line:#29314a;--text:#f5f6ff;--muted:#9ba5c1;--purple:#8767ff;--pink:#ef5bb5;--green:#55d69a;--red:#ff7385;--radius:18px}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% -10%,#25204b 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+    button,input,textarea,select{font:inherit}button{cursor:pointer}.shell{max-width:1160px;margin:auto;padding:22px 18px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:34px}.brand{display:flex;align-items:center;gap:11px;font-size:22px;font-weight:850;letter-spacing:-.7px}.mark{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--pink));box-shadow:0 8px 28px #8767ff45}.mark span{font-size:17px}.pill{border:1px solid var(--line);border-radius:99px;padding:7px 12px;color:var(--muted);font-size:12px}.hero{margin:0 0 24px}.eyebrow{color:#b6a8ff;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(30px,6vw,54px);line-height:1.04;letter-spacing:-2px;margin:9px 0 12px}.gradient{background:linear-gradient(90deg,#a997ff,#ff80c7);background-clip:text;color:transparent}.hero p{max-width:650px;color:var(--muted);margin:0}.layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:18px}.panel{background:linear-gradient(180deg,#151a2b,#101423);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 18px 60px #0003}.panel h2{font-size:17px;margin:0 0 4px}.sub{color:var(--muted);font-size:13px;margin:0 0 18px}.field{display:block;margin:17px 0 8px;font-weight:700;font-size:13px}.prompt{width:100%;min-height:142px;resize:vertical;background:#0b1020;border:1px solid var(--line);border-radius:13px;padding:14px;color:var(--text);outline:none}.prompt:focus,input:focus,select:focus{border-color:var(--purple);box-shadow:0 0 0 3px #8767ff25;outline:none}.hint{font-size:12px;color:var(--muted);margin:7px 0 0}.controls{display:grid;grid-template-columns:1fr 1fr;gap:12px}.control select,.control input{width:100%;background:#0b1020;border:1px solid var(--line);border-radius:11px;padding:11px;color:var(--text)}.primary{width:100%;border:0;border-radius:12px;padding:14px 18px;margin-top:20px;color:white;font-weight:800;background:linear-gradient(100deg,var(--purple),var(--pink));box-shadow:0 10px 28px #8767ff30}.primary:disabled{opacity:.55;cursor:wait}.status{margin-top:14px;color:var(--muted);font-size:13px;min-height:22px}.preview{display:grid;place-items:center;min-height:330px;background:linear-gradient(145deg,#0b1020,#17132d);border:1px dashed #3b4261;border-radius:14px;overflow:hidden}.preview video{width:100%;height:auto;display:block;max-height:520px;background:#000}.empty{text-align:center;padding:28px;color:var(--muted)}.empty .play{font-size:38px;margin-bottom:8px}.empty strong{display:block;color:var(--text);font-size:14px}.result-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.secondary{border:1px solid var(--line);background:#171d31;color:var(--text);border-radius:10px;padding:9px 13px;text-decoration:none;font-size:13px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.feature{background:#101525;border:1px solid var(--line);border-radius:14px;padding:14px}.feature b{display:block;font-size:13px}.feature span{display:block;color:var(--muted);font-size:12px;margin-top:4px}.foot{color:#737e9c;font-size:12px;text-align:center;margin-top:28px}.notice{border:1px solid #5a4c2c;background:#292313;color:#f4d99b;border-radius:12px;padding:11px 13px;font-size:12px;margin-top:14px}
+    @media(max-width:780px){.layout{grid-template-columns:1fr}.shell{padding:16px 13px 42px}.top{margin-bottom:25px}.panel{padding:16px}.preview{min-height:240px}.features{grid-template-columns:1fr}.hero h1{letter-spacing:-1.2px}}
+    @media(max-width:420px){.controls{grid-template-columns:1fr}.pill{font-size:11px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="brand"><div class="mark"><span>▶</span></div> ReelGen <span class="pill">2.0 STUDIO</span></div>
+      <span class="pill">AI VIDEO CREATION</span>
+    </header>
+    <section class="hero">
+      <div class="eyebrow">Your imagination, in motion</div>
+      <h1>Create something <span class="gradient">unforgettable.</span></h1>
+      <p>Describe a scene and ReelGen will send it to an AI video model. Create a clip, preview the result and download it to your device.</p>
+    </section>
+    <section class="layout">
+      <div class="panel">
+        <h2>AI Video Studio</h2>
+        <p class="sub">Start with a detailed text prompt.</p>
+        <label class="field" for="prompt">What should happen in your video?</label>
+        <textarea id="prompt" class="prompt" maxlength="1200" placeholder="A cinematic shot of a futuristic Nairobi at sunset, matatus moving through glowing streets, realistic lighting, smooth camera movement..."></textarea>
+        <p class="hint">Tip: describe the subject, setting, action, camera movement, lighting and visual style.</p>
+        <div class="controls">
+          <div class="control"><label class="field" for="ratio">Aspect ratio</label><select id="ratio"><option value="9:16">9:16 · Vertical</option><option value="16:9">16:9 · Landscape</option><option value="1:1">1:1 · Square</option></select></div>
+          <div class="control"><label class="field" for="duration">Clip length</label><select id="duration"><option value="5">5 seconds</option><option value="6">6 seconds</option><option value="8">8 seconds</option><option value="10">10 seconds</option></select></div>
+          <div class="control"><label class="field" for="resolution">Resolution</label><select id="resolution"><option value="768P">768P · Standard</option><option value="1080P">1080P · High (if supported)</option></select></div>
+          <div class="control"><label class="field" for="style">Prompt style</label><select id="style"><option value="cinematic">Cinematic</option><option value="anime">Anime</option><option value="realistic">Photorealistic</option><option value="commercial">Commercial</option><option value="animation">3D animation</option></select></div>
+        </div>
+        <button id="generate" class="primary">✦ Generate AI video</button>
+        <div id="status" class="status" role="status" aria-live="polite">Ready when you are.</div>
+        <div class="notice">AI generation uses a paid third-party service. Costs depend on the selected model, duration and resolution. Nothing is charged by this website without your own API account and configuration.</div>
+      </div>
+      <aside class="panel">
+        <h2>Your video</h2>
+        <p class="sub">Your finished result will appear here.</p>
+        <div id="preview" class="preview"><div class="empty"><div class="play">▷</div><strong>No video generated yet</strong><span>Your AI video preview will appear here.</span></div></div>
+        <div id="actions" class="result-actions" hidden></div>
+        <div class="features">
+          <div class="feature"><b>Text to video</b><span>Prompt-based generation</span></div>
+          <div class="feature"><b>Queue status</b><span>Track render progress</span></div>
+          <div class="feature"><b>Download</b><span>Save finished clips</span></div>
+        </div>
+      </aside>
+    </section>
+    <footer class="foot">ReelGen 2.0 · Built for creators · AI output depends on the connected model</footer>
+  </main>
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+    const button = $('#generate');
+    const statusBox = $('#status');
+    const preview = $('#preview');
+    const actions = $('#actions');
+    let activeVideoUrl = '';
+
+    const styleGuidance = {
+      cinematic: 'Cinematic composition, intentional camera movement, dramatic lighting, polished film look.',
+      anime: 'High-quality anime art direction, expressive motion, detailed backgrounds, dynamic composition.',
+      realistic: 'Photorealistic details, natural movement, realistic lighting, lifelike textures.',
+      commercial: 'Premium commercial production, clean composition, polished lighting, elegant camera movement.',
+      animation: 'High-quality 3D animated film aesthetic, expressive characters, detailed environments.'
+    };
+
+    function setStatus(message) { statusBox.textContent = message; }
+    function showVideo(url) {
+      preview.replaceChildren();
+      const video = document.createElement('video');
+      video.src = url;
+      video.controls = true;
+      video.playsInline = true;
+      video.preload = 'metadata';
+      preview.append(video);
+      actions.replaceChildren();
+      const link = document.createElement('a');
+      link.className = 'secondary';
+      link.href = url;
+      link.download = 'reelgen-video.mp4';
+      link.textContent = '⬇ Download video';
+      link.target = '_blank';
+      link.rel = 'noopener';
+      actions.append(link);
+      actions.hidden = false;
+    }
+
+    async function requestJson(url, options) {
+      const response = await fetch(url, options);
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
+      return data;
+    }
+
+    async function pollJob(requestId) {
+      const started = Date.now();
+      while (Date.now() - started < 12 * 60 * 1000) {
+        await new Promise(resolve => setTimeout(resolve, 4000));
+        const data = await requestJson(`/api/status?id=${encodeURIComponent(requestId)}`);
+        if (data.status === 'COMPLETED') return data;
+        if (data.status === 'FAILED') throw new Error(data.error || 'The AI video job failed. Try a different prompt.');
+        setStatus(data.status === 'IN_PROGRESS' ? 'Your video is rendering…' : 'Your request is waiting in the AI queue…');
+      }
+      throw new Error('This render is taking longer than expected. Your request may still be processing; try checking again later.');
+    }
+
+    button.addEventListener('click', async () => {
+      const prompt = $('#prompt').value.trim();
+      if (prompt.length < 12) { setStatus('Please enter a more detailed prompt (at least 12 characters).'); return; }
+      button.disabled = true;
+      button.textContent = 'Sending to AI…';
+      actions.hidden = true;
+      setStatus('Submitting your video request…');
+      try {
+        const fullPrompt = `${prompt}\n\nVisual direction: ${styleGuidance[$('#style').value]}`;
+        const job = await requestJson('/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: fullPrompt,
+            aspect_ratio: $('#ratio').value,
+            duration: Number($('#duration').value),
+            resolution: $('#resolution').value
+          })
+        });
+        if (!job.request_id) throw new Error('The AI provider did not return a request ID.');
+        setStatus('Request accepted. Waiting for the AI video…');
+        const result = await pollJob(job.request_id);
+        const url = result.video?.url;
+        if (!url) throw new Error('The AI provider completed the job but did not return a video URL.');
+        activeVideoUrl = url;
+        showVideo(url);
+        setStatus('Your video is ready. Preview it or download it now.');
+      } catch (error) {
+        setStatus(error.message || 'Something went wrong. Please try again.');
+      } finally {
+        button.disabled = false;
+        button.textContent = '✦ Generate AI video';
+      }
+    });
+  </script>
+</body>
+</html>
